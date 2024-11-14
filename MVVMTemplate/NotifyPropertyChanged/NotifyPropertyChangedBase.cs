@@ -6,7 +6,7 @@ namespace MVVMTemplate.NotifyPropertyChanged
     /// A base class that provides the implementation of the <see cref="INotifyPropertyChanged"/> interface.
     /// This allows derived classes to notify subscribers when a property value has changed.
     /// </summary>
-    public class NotifyPropertyChangedBase : INotifyPropertyChanged
+    public abstract class NotifyPropertyChangedBase : INotifyPropertyChanged
     {
         /// <summary>
         /// Occurs when a property value changes in the class.

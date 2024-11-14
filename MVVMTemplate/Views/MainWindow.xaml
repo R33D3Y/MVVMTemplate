@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMTemplate"
-        xmlns:ViewModel="clr-namespace:MVVMTemplate.ViewModels"
+        xmlns:viewModels="clr-namespace:MVVMTemplate.ViewModels"
+        xmlns:helpers="clr-namespace:MVVMTemplate.Helpers"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     
     <Window.DataContext>
-        <ViewModel:MainViewModel />
+        <helpers:ViewModelLocatorExtension ViewModelType="{x:Type viewModels:MainWindowViewModel}" />
     </Window.DataContext>
 
     <Grid>

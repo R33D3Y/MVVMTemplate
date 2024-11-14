@@ -1,4 +1,5 @@
 ﻿using MVVMTemplate.Commands;
+using MVVMTemplate.Logging;
 using MVVMTemplate.Models;
 using MVVMTemplate.NotifyPropertyChanged;
 using System.Windows.Input;
@@ -9,8 +10,10 @@ namespace MVVMTemplate.ViewModels
     /// ViewModel for the main window that handles user interactions and manages data for the view.
     /// It provides a property <see cref="GreetingMessage"/> and a command <see cref="ButtonClickCommand"/>.
     /// </summary>
-    public class MainViewModel : NotifyPropertyChangedBase
+    public class MainWindowViewModel : NotifyPropertyChangedBase
     {
+        private readonly ILoggingService _loggingService;
+
         /// <summary>
         /// Gets or sets the person object associated with this view model.
         /// </summary>
@@ -36,14 +39,18 @@ namespace MVVMTemplate.ViewModels
         {
             // Notify that GreetingMessage property has changed.
             OnPropertyChanged(nameof(GreetingMessage));
+
+            _loggingService.Log("Button has been clicked");
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
+        /// Initializes a new instance of the <see cref="MainWindowViewModel"/> class.
         /// The constructor sets up a default <see cref="Person"/> object with a name.
         /// </summary>
-        public MainViewModel()
+        public MainWindowViewModel(ILoggingService loggingService)
         {
+            _loggingService = loggingService;
+
             // Initialize the Person property with a default name.
             Person = new Person
             {
